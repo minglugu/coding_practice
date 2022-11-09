@@ -9,6 +9,7 @@ import org.apache.commons.mail.SimpleEmail;
  * extended function: 1. 当用 qq 邮件服务器来自动群发邮件的时候，会有很多限制。
  *                    可以自己写邮件服务器或者第三方的邮件服务器代码。
  *                    2. 将这个功能结合到项目里，如果项目的哪个地方发生错误，可以触发此功能，发邮件提醒，
+ *                    3. 登录某个网站，忘记密码，也是可以用这种方式，来reset pwd
  *
  */
 public class Test {
@@ -21,7 +22,7 @@ public class Test {
         email.setSslSmtpPort("465");
         // set host name
         email.setHostName("smtp.qq.com");
-        // set authentication. qq email and "授权码" of SMTP
+        // set authentication. qq email and "授权码" of SMTP. Sender's email and pwd
         email.setAuthentication("1262913815@qq.com", "gbpqohffqrjxgahi");
         // set character
         email.setCharset("uft8");
