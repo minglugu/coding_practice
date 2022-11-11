@@ -19,3 +19,6 @@
 
 ## 2. 二分查找：旋转数组的最小数字。https://www.nowcoder.com/practice/9f3231a991af4f55b95579b44b7a01ba?tpId=13&tqId=11159&ru=/exam/oj
 ### 把一个数组最开始的若干个元素搬到数组的末尾，称之为数组的旋转。
+
+## 3. https://www.nowcoder.com/questionTerminal/ef1f53ef31ca408cada5093c8780f44b?answerType=1&f=discussion
+### 输入整数数组，奇数位于偶数前面
