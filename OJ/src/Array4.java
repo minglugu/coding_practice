@@ -33,7 +33,7 @@ public class Array4 {
 
     // relative orders of odd and even numbers matter
     // From the left to right, move the even number to the right position.
-    // 从前往后，把偶数后移，腾出位置，放入奇数。奇数前插，偶数后插，所以奇数和偶数的相对位置，都不会变化
+    // 从前往后，把偶数后移，腾出位置，放入奇数。奇数前插，所以奇数和偶数的相对位置，都不会变化
     public static int[] reorderArray2 (int[] array) {
         if (array == null || array.length == 0) {
             return null;
@@ -44,7 +44,7 @@ public class Array4 {
             // 从左向右，每次遇到的，都是最前面的奇数，需要放在 k 下标处
             if((array[i] & 1) == 1) { // 奇数
                 int temp = array[i]; // 保存当前奇数到临时的整数变量里
-                int j = i;
+                int j = i;          // j 目前是 奇数位 index
                 while (j > k) { // 将该奇数之前的内容（偶数序列），整体后移一个位置
                     array[j] = array[j-1];
                     j--;
@@ -55,6 +55,31 @@ public class Array4 {
         return array;
     }
 
+    // 偶数从前往后，后插的方法
+    public static int[] reorderArray3 (int[] array) {
+        if (array == null || array.length == 0) {
+            return null;
+        }
+
+        int k = array.length - 1;
+        for (int i = array.length - 1; i >= 0 ; i--) {
+            // 从右向左，每次遇到的，偶数，需要放在 k 下标处
+            if((array[i] & 1) == 0) { // 偶数
+                int temp = array[i]; // 保存当前偶数到临时的整数变量里
+                int j = i;          // j 目前是 偶数位 index
+                while (j < k) { // 将该奇数之前的内容（偶数序列），整体后移一个位置
+                    array[j] = array[j+1];
+                    j++;
+                }
+                array[k--] = temp; // 将奇数保存在它将来的位置，因为是从左向右放的，没有跨越奇数，所以相对位置是不变的
+            }
+        }
+        return array;
+    }
+
+    // 还有一个双指针的方法
+
+
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 4, 5};
         System.out.println(Arrays.toString(array));
@@ -64,9 +89,11 @@ public class Array4 {
 
         int[] array2 = {3, 5, 2, 4, 6, 8, 1, 7, 9};
         System.out.println(Arrays.toString(array2));
-        array2 = reorderArray2(array2);
+        // array2 = reorderArray2(array2);
+        array2 = reorderArray3(array2);
         System.out.println("=======================");
         System.out.println(Arrays.toString(array2));
+
     }
 
 
