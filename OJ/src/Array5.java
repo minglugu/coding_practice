@@ -86,6 +86,5 @@ public class Array5 {
     public static void main(String[] args) {
         int[] nums = new int[]{1,2,3,2,2,2,5,4,2};
         majorityElem3(nums);
-
     }
 }
